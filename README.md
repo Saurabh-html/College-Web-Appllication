@@ -15,7 +15,7 @@ This repository is part of my project where i have created a web based college a
 ## Introduction
 This web-based application is designed to provide a comprehensive transdisciplinary education platform. It features a user-friendly interface with essential functionalities such as login, signup, and password recovery. After logging in, users can access various sections, including college details, update profile, library resources, event details, upload research papers, serach subjects by their name, etc. The application ensures a seamless and intuitive experience, facilitating easy navigation and access to educational materials and support.
 ### Login Page
-![Login Page]('Result/Screenshot 2024-08-30 145054.png')
+![Login Page](Result/Login_page.png.png)
 
 ## Project Workflow
 The overall workflow of the project is as follows:
@@ -33,7 +33,7 @@ The overall workflow of the project is as follows:
     - **Profile Page**
     - **Logout Option**
 8. Each section provides specific functionalities.
-
+   ![Home Page](Result/college_list.png.png)
 ## Features
 ### User Authentication
 - Secure login and signup functionality.
@@ -49,7 +49,7 @@ The overall workflow of the project is as follows:
   - **Research Papers**: Browse or upload research papers.
   - **Profile Page**: View and update user profile information.
   - **Logout**: Securely end the session and redirect to the login page.
-
+![College Home Page](Result/college_page.png.png)
 ### Responsive Design
 - Fully responsive interface that works seamlessly on desktop and mobile devices.
 
@@ -58,10 +58,10 @@ The overall workflow of the project is as follows:
 
 ### Secure Data Handling
 - All user data is securely stored and managed using modern web technologies.
-
+![Courses](Result/courses.png.png)
 ### Profile Management
 - Users can view and edit their profiles to keep their information up-to-date.
-
+![Profile](Result/profile_page.png.png)
 ### Resource Access
 - Users can easily access and utilize various learning materials and resources.
 
@@ -73,7 +73,8 @@ The overall workflow of the project is as follows:
 
 ### Session Management
 - Ensures secure session handling with proper login/logout mechanisms.
-
+![Semester](Result/sem_course.png.png)
+![Subjects](Result/subjects.png.png)
 ## Installation
 1. Clone the repository:
    ```bash
