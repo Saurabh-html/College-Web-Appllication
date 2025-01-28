@@ -1,0 +1,62 @@
+[
+    {
+        "centreName": "Dance Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "danceclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Rhythmic Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "rhythmicclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Art Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "artclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Sports Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "sportsclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Yoga Centre",
+        "location": "SAS, DMIHER",
+        "contactEmail": "yogacentre.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Drama Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "dramaclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Sports Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "sportsclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Lensation Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "lensationclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Science Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "scienceclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Tech Club",
+        "location": "SAS, DMIHER",
+        "contactEmail": "techclub.sas@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    }
+]

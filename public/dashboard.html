@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMIHER College Details</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        body {
+            margin: 0;
+            position: relative;
+            overflow: auto;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('image/dmiher(du).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .logo {
+            height: 100px;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+        .university-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: blue;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .profile-settings {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+        .content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin-top: 120px;
+            position: relative;
+            z-index: 1;
+        }
+        .profile-pic {
+            border-radius: 50%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: blue;
+            color: white;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .details-link {
+            text-decoration: none;
+            color: blue;
+        }
+        .details-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <header class="header">
+        <img src="image/dlogo.jpeg" alt="Logo" class="logo">
+        <div class="header-content">
+            <div class="university-title">DMIHER UNIVERSITY</div>
+        </div>
+        <div class="profile-settings">
+            <a href="profile.html">My Profile</a>
+            <a href="setting.html">Settings</a>
+        </div>
+    </header>
+    <div class="content">
+        <h1>DMIHER College Details</h1>
+        <!-- Added oninput event listener to search bar -->
+        <input type="text" id="searchBar" class="search-bar" placeholder="Search for DMIHER colleges..." oninput="searchColleges()">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Stream</th>
+                    <th>Rating</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="detailsTable">
+                <tr>
+                    <td><a href="jnmc.html">Jawaharlal Nehru Medical College</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>MBBS</td>
+                    <td>4.7</td>
+                    <td><a href="#" class="details-link" data-id="1">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="spdc.html">Sharad Pawar Dental College</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Dental</td>
+                    <td>4.6</td>
+                    <td><a href="#" class="details-link" data-id="2">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="feat.html">Faculty of Engineering and Technology</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>AIDS, AIML, CSD, CSME, CSE</td>
+                    <td>4.5</td>
+                    <td><a href="#" class="details-link" data-id="3">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="mgac.html">Mahatma Gandhi Ayurvedic College</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Ayurveda</td>
+                    <td>4.4</td>
+                    <td><a href="#" class="details-link" data-id="4">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="sahs.html">School of Allied Health Sciences</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Health Science</td>
+                    <td>4.2</td>
+                    <td><a href="#" class="details-link" data-id="5">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="sas.html">School of Allied Sciences</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>BCA, BBA, MCA, MBA</td>
+                    <td>4.1</td>
+                    <td><a href="#" class="details-link" data-id="6">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="srmmcon.html">Smt. Radhikabai Meghe Medical College of Nursing</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Nursing</td>
+                    <td>4.4</td>
+                    <td><a href="#" class="details-link" data-id="7">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="rnpc.html">Ravi Nair Physiotherapy College</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Physiotherapy</td>
+                    <td>4.7</td>
+                    <td><a href="#" class="details-link" data-id="8">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="dmcp.html">Datta Meghe College of Pharmacy</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Pharmacy</td>
+                    <td>4.2</td>
+                    <td><a href="#" class="details-link" data-id="9">Details</a></td>
+                </tr>
+                <tr>
+                    <td><a href="smcon.html">Shalinitai Meghe Medical College of Nursing</a></td>
+                    <td>Sawangi, Wardha, Maharashtra</td>
+                    <td>Nursing</td>
+                    <td>4.1</td>
+                    <td><a href="#" class="details-link" data-id="10">Details</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // JavaScript function to filter colleges based on search input
+        function searchColleges() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const rows = document.querySelectorAll('#detailsTable tr');
+            
+            rows.forEach(row => {
+                const collegeName = row.cells[0].textContent.toLowerCase();
+                if (collegeName.includes(searchInput)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to sort table by rating
+        function sortTableByRating() {
+            const table = document.getElementById('detailsTable');
+            const rowsArray = Array.from(table.rows);
+
+            // Sort rows by rating in descending order
+            rowsArray.sort((a, b) => {
+                const ratingA = parseFloat(a.cells[3].textContent);
+                const ratingB = parseFloat(b.cells[3].textContent);
+                return ratingB - ratingA;
+            });
+
+            // Append sorted rows to the table body
+            rowsArray.forEach(row => table.appendChild(row));
+        }
+
+        // Call sort function to sort colleges on page load
+        window.onload = sortTableByRating;
+    </script>
+</body>
+</html>

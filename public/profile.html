@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .profile-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .input-field, .gender-select {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 1em; /* Ensure consistent font size */
+            margin-bottom: 15px; /* Ensure even spacing between fields */
+        }
+
+        .gender-select {
+            appearance: none;
+            background-color: #fff;
+            cursor: pointer;
+            font-family: sans-serif; /* Match font style to other fields */
+        }
+
+        .gender-select::-ms-expand {
+            display: none; /* Remove default arrow in Internet Explorer */
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .upload-label {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+            cursor: pointer;
+            color: white;
+            background-color: #007bff; /* Blue background for the button */
+            padding: 5px 10px; /* Smaller padding for a smaller button */
+            border-radius: 5px;
+            font-size: 0.9em; /* Slightly smaller font size */
+            width: fit-content; /* Adjust width to fit the content */
+            margin: 10px auto; /* Center the label */
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .profile-name {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 0 auto;
+            opacity: 0.6; /* Initial state of the button */
+            pointer-events: none; /* Disable button click */
+        }
+
+        .submit-button.enabled {
+            opacity: 1; /* Enabled state */
+            pointer-events: auto; /* Enable button click */
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="goBack()">&#8592;</button>
+        <div class="profile-card">
+            <img id="profilePic" src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+            <label for="profilePicInput" class="upload-label">Change Picture</label>
+            <input type="file" id="profilePicInput" class="file-input" accept="image/*" onchange="previewImage(event)">
+            <h1 class="profile-name">My Profile</h1>
+            <form class="profile-form" id="profileForm">
+                <input type="text" class="input-field" placeholder="Name" id="nameInput">
+                <input type="text" class="input-field" placeholder="Address" id="addressInput">
+                <select class="gender-select" id="genderSelect">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+                <input type="number" id="ageInput" class="input-field" placeholder="Age" min="0" max="99" oninput="validateAge(this)">
+                <input type="date" class="input-field" id="dobInput" placeholder="Date of Birth">
+                <input type="email" class="input-field" placeholder="Email" id="emailInput">
+                <input type="text" class="input-field" placeholder="Course" id="courseInput">
+                <button type="button" class="submit-button" id="submitButton" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+    <script>
+        function validateAge(input) {
+            if (input.value.length > 2) {
+                input.value = input.value.slice(0, 2);
+            }
+        }
+
+        function checkFormValidity() {
+            const name = document.getElementById('nameInput').value;
+            const address = document.getElementById('addressInput').value;
+            const gender = document.getElementById('genderSelect').value;
+            const age = document.getElementById('ageInput').value;
+            const dob = document.getElementById('dobInput').value;
+            const email = document.getElementById('emailInput').value;
+            const course = document.getElementById('courseInput').value;
+            
+            const isFormValid = name && address && gender && age && dob && email && course;
+            const submitButton = document.getElementById('submitButton');
+            
+            if (isFormValid) {
+                submitButton.classList.add('enabled');
+            } else {
+                submitButton.classList.remove('enabled');
+            }
+        }
+
+        // Add event listeners to validate form fields
+        document.querySelectorAll('.input-field, .gender-select').forEach(input => {
+            input.addEventListener('input', checkFormValidity);
+        });
+
+        document.getElementById('dobInput').addEventListener('change', checkFormValidity);
+        document.getElementById('profilePicInput').addEventListener('change', checkFormValidity);
+
+        function submitForm() {
+            if (document.getElementById('submitButton').classList.contains('enabled')) {
+                // Add your form submission logic here
+                alert('Form submitted successfully!');
+            }
+        }
+    </script>
+</body>
+</html>

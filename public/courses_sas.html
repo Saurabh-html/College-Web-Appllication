@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="document.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"> <!-- Additional Google Font for buttons -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('image/feat_logo.jpeg'); /* Set the background image */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Added for absolute positioning of logos */
+        }
+
+        /* White shading over the background */
+        .shade-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* White shade with 80% opacity */
+            z-index: 1; /* Ensure it is below content */
+        }
+
+        /* Top left logo */
+        .top-left-logo, .top-right-logo {
+            position: absolute;
+            top: 40px; /* Position from top */
+            height: auto; /* Maintain aspect ratio */
+            z-index: 2; /* Ensure logos are above the shading */
+        }
+
+        .top-left-logo {
+            left: 20px; /* Position from the left */
+            width: 200px; /* Double the width for top-left logo */
+        }
+
+        /* Top right logo */
+        .top-right-logo {
+            right: 20px; /* Position from the right */
+            width: 100px; /* Original width for top-right logo */
+        }
+
+        .header {
+            text-align: center;
+            margin: 20px 0;
+            z-index: 2; /* Ensure content is above the shade */
+            position: relative;
+        }
+
+        .header h1 {
+            margin: 10px 0;
+            font-size: 2.5em;
+            color: #0056b3; /* Dark blue */
+        }
+
+        .header h2 {
+            margin: 5px 0;
+            font-size: 1.5em;
+            color: #2e3fad;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            z-index: 2; /* Ensure content is above the shade */
+            position: relative;
+        }
+
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .course-list li {
+            font-size: 1.2em;
+            margin: 10px;
+            text-align: center;
+            background-color: #004d99; /* Formal dark blue background */
+            padding: 40px;
+            border-radius: 12px; /* Slightly larger border radius for a formal look */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            flex: 1 0 21%; /* Adjusts the flex basis to create large square icons */
+            max-width: 200px;
+            box-sizing: border-box;
+            box-shadow: 0 6px 12px rgba(20, 19, 19, 0.896); /* Enhanced shadow for depth */
+            position: relative; /* For positioning the sticker */
+            overflow: hidden; /* Hide any overflow */
+            font-family: 'Open Sans', sans-serif; /* Updated font style for buttons */
+            font-weight: bold; /* Make font bold */
+            cursor: pointer; /* Indicate clickable area */
+        }
+
+        .course-list li a {
+            text-decoration: none;
+            color: white; /* White text for links */
+            display: block;
+            height: 100%;
+            line-height: 1.4em; /* Aligns text vertically */
+        }
+
+        .course-list li:hover {
+            transform: scale(1.05); /* Slightly larger on hover */
+            box-shadow: 0 8px 16px rgba(250, 248, 248, 0.3); /* Enhanced shadow on hover */
+            border: 2px solid #0066cc; /* Highlight border on hover */
+        }
+
+        .course-list li:active {
+            transform: scale(1.00); /* Return to original size on click */
+        }
+
+        .course-list li::before {
+            content: '';
+            display: block;
+            font-size: 3em; /* Increased sticker size */
+            margin-bottom: 10px;
+        }
+
+        /* Specific stickers for each course */
+        .course-list li:nth-child(1)::before {
+            content: '💡'; /* New data or AI related sticker for AIDS */
+        }
+
+        .course-list li:nth-child(2)::before {
+            content: '📊'; /* New machine learning related sticker for AIML */
+        }
+
+        .course-list li:nth-child(3)::before {
+            content: '🖌️'; /* New graphics design related sticker for CSD */
+        }
+
+        .course-list li:nth-child(4)::before {
+            content: '🔬'; /* New medical engineering related sticker for CSME */
+        }
+
+        .course-list li:nth-child(5)::before {
+            content: '👨‍💻'; /* New computer science related sticker for CSE */
+        }
+    </style>
+</head>
+<body>
+    <!-- White shading over background -->
+    <div class="shade-overlay"></div>
+
+    <!-- Top left and right logos -->
+    <img src="image/dlogo.jpeg" alt="Top Left Logo" class="top-left-logo">
+
+    <div class="header">
+        <h1>DMIHER University</h1>
+        <h2>School of Allied Sciences</h2>
+        <h2>Course Details</h2>
+    </div>
+    <div class="container">
+        <ul class="course-list">
+            <li data-url="bca.html">BCA</li>
+            <li data-url="bba.html">BBA</li>
+            <li data-url="mca.html">MCA</li>
+            <li data-url="mba.html">MBA</li>
+        </ul>
+    </div>
+    <script>
+        document.querySelectorAll('.course-list li').forEach(function(item) {
+            item.addEventListener('click', function() {
+                window.location.href = item.getAttribute('data-url');
+            });
+        });
+    </script>
+</body>
+</html>

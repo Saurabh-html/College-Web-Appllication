@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy & Sell - Education</title>
+    <link rel="stylesheet" href="buy_sell.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="tuition-centres.html">Tuition Centres</a></li>
+                <li><a href="buy_sell.html">Buy & Sell</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="industry.html">Industry Details</a></li>
+                <li><a href="online.html">Online Mentors</a></li>
+                <li><a href="learning.html">Learning Resources</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <a href="profile.html" class="user-info-link">
+                <div class="user-info">
+                    <img src="https://placehold.co/50x50" alt="User Profile">
+                    <span>You</span>
+                </div>
+            </a>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <div class="content">
+            <div class="header">
+                <input type="text" id="search-bar" placeholder="Search for items...">
+                <button class="icon-btn" id="filter-btn">
+                    <img src="filter-icon.png" alt="Filter">
+                </button>
+                <button class="icon-btn" id="location-btn">
+                    <img src="location-icon.png" alt="Find Nearest Item">
+                </button>
+            </div>
+            <h1>Buy & Sell</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Location</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="item-table-body">
+                    <!-- Educational items -->
+                    <tr data-lat="28.6139" data-lng="77.2090">
+                        <td>Graphing Calculator</td>
+                        <td>Stationery</td>
+                        <td>INR 5,000</td>
+                        <td>New Delhi</td>
+                        <td><a href="#" class="details-link" data-item="Graphing Calculator" data-category="Stationery" data-price="INR 5,000" data-location="New Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="19.0760" data-lng="72.8777">
+                        <td>Physics Textbook</td>
+                        <td>Books</td>
+                        <td>INR 1,000</td>
+                        <td>Mumbai</td>
+                        <td><a href="#" class="details-link" data-item="Physics Textbook" data-category="Books" data-price="INR 1,000" data-location="Mumbai">Details</a></td>
+                    </tr>
+                    <tr data-lat="12.9716" data-lng="77.5946">
+                        <td>Chemistry Lab Kit</td>
+                        <td>Science Kits</td>
+                        <td>INR 10,000</td>
+                        <td>Bangalore</td>
+                        <td><a href="#" class="details-link" data-item="Chemistry Lab Kit" data-category="Science Kits" data-price="INR 10,000" data-location="Bangalore">Details</a></td>
+                    </tr>
+                    <tr data-lat="22.5726" data-lng="88.3639">
+                        <td>Art Supplies Bundle</td>
+                        <td>Art & Craft</td>
+                        <td>INR 2,500</td>
+                        <td>Kolkata</td>
+                        <td><a href="#" class="details-link" data-item="Art Supplies Bundle" data-category="Art & Craft" data-price="INR 2,500" data-location="Kolkata">Details</a></td>
+                    </tr>
+                    <tr data-lat="13.0827" data-lng="80.2707">
+                        <td>Language Learning Software</td>
+                        <td>Software</td>
+                        <td>INR 3,500</td>
+                        <td>Chennai</td>
+                        <td><a href="#" class="details-link" data-item="Language Learning Software" data-category="Software" data-price="INR 3,500" data-location="Chennai">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.7041" data-lng="77.1025">
+                        <td>Mathematics Puzzle Set</td>
+                        <td>Toys & Games</td>
+                        <td>INR 800</td>
+                        <td>Delhi</td>
+                        <td><a href="#" class="details-link" data-item="Mathematics Puzzle Set" data-category="Toys & Games" data-price="INR 800" data-location="Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="23.2599" data-lng="77.4126">
+                        <td>History DVD Set</td>
+                        <td>Movies & TV Shows</td>
+                        <td>INR 1,200</td>
+                        <td>Bhopal</td>
+                        <td><a href="#" class="details-link" data-item="History DVD Set" data-category="Movies & TV Shows" data-price="INR 1,200" data-location="Bhopal">Details</a></td>
+                    </tr>
+                    <tr data-lat="18.5204" data-lng="73.8567">
+                        <td>Geography Map Set</td>
+                        <td>Maps</td>
+                        <td>INR 500</td>
+                        <td>Pune</td>
+                        <td><a href="#" class="details-link" data-item="Geography Map Set" data-category="Maps" data-price="INR 500" data-location="Pune">Details</a></td>
+                    </tr>
+                    <tr data-lat="26.9124" data-lng="75.7873">
+                        <td>Educational Board Game</td>
+                        <td>Toys & Games</td>
+                        <td>INR 1,500</td>
+                        <td>Jaipur</td>
+                        <td><a href="#" class="details-link" data-item="Educational Board Game" data-category="Toys & Games" data-price="INR 1,500" data-location="Jaipur">Details</a></td>
+                    </tr>
+                    <tr data-lat="17.3850" data-lng="78.4867">
+                        <td>Computer Programming Book</td>
+                        <td>Books</td>
+                        <td>INR 800</td>
+                        <td>Hyderabad</td>
+                        <td><a href="#" class="details-link" data-item="Computer Programming Book" data-category="Books" data-price="INR 800" data-location="Hyderabad">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="buy_shell.js"></script>
+</body>
+</html>

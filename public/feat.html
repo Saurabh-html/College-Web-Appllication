@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty of Engineering and Technology</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        .university-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: blue;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 3; /* Moved above background */
+        }
+        .container {
+            display: flex;
+            position: relative;
+            height: 100vh;
+            background-image: url('image/feat-b.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .sidebar {
+            width: 15%;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: blue;
+            color: white;
+            position: relative;
+            z-index: 3;
+        }
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(15% + 21px);
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+        .content {
+            width: 85%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 5px 0;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+            color: #cce7ff;
+        }
+        .profile-pic {
+            border-radius: 50%;
+        }
+        .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .user-info-link {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-info img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .user-info span {
+            margin-right: 10px;
+        }
+        .courses-icon {
+            font-size: 2em;
+            cursor: pointer;
+            margin: 20px 0;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            padding: 5px 20px;
+            border-radius: 15px;
+            background-color: #338cd9;
+            color: #ffffff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #6768d1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: bounce 1.5s infinite;
+        }
+        .courses-icon::after {
+            content: '🎓';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 2.2em;
+            animation: float 2s infinite ease-in-out;
+        }
+        .courses-icon span {
+            display: block;
+            margin-top: 20%;
+            font-size: 1.5em;
+        }
+        .courses-icon:hover {
+            transform: translateY(-8px);
+            background-color: #131f90;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .courses-icon:hover::after {
+            animation: spin 1s linear infinite;
+        }
+        .courses-icon:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+        .faculty-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .research-papers-menu {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .research-papers-menu a {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+            color: white;
+        }
+        .research-papers-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .logo-top-right {
+            position: absolute;
+            top: 20px; /* Aligned to the top */
+            right: -60px;
+            z-index: 4; /* Moved above background */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, -10px);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, 0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="university-title">DMIHER University</div>
+    <div class="logo-top-right">
+        <img src="image/feat_logo.jpeg" alt="Top Right Logo" style="width: 50%;" />
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="research-papers.html">Research Papers</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <div class="research-papers-menu" id="research-papers-menu">
+                <a href="add-research-paper.html">Add Research Paper</a>
+                <a href="read-research-papers.html">Read Research Papers</a>
+            </div>
+            <div class="user-info-link">
+                <a href="profile.html">
+                    <div class="user-info">
+                        <img src="https://placehold.co/50x50" alt="User Profile">
+                        <span>My Profile</span>
+                    </div>
+                </a>
+                <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="faculty-details">
+                <h1>Faculty of Engineering and Technology</h1>
+                <p>The Faculty of Engineering and Technology at DMIHER University offers a comprehensive range of undergraduate and postgraduate programs in engineering and technology, designed to provide students with a solid foundation in their chosen field of study and prepare them for successful careers in industry and academia.</p>
+            </div>
+            <!-- Courses button added here -->
+            <button class="courses-icon" onclick="window.location.href='courses.html'">
+                <span>Courses</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        function toggleResearchPapersMenu() {
+            var menu = document.getElementById('research-papers-menu');
+            menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

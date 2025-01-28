@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Jawaharlal Nehru Medical College",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "MBBS",
+        "rating": 4.7,
+        "fee": "₹25,00,000 per year",
+        "classes": "Pre-clinical, Clinical, Paraclinical"
+    },
+    {
+        "id": 2,
+        "name": "Sharad Pawar Dental College",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Dental",
+        "rating": 4.6,
+        "fee": "₹20,00,000 per year",
+        "classes": "Basic Sciences, Pre-clinical, Clinical"
+    },
+    {
+        "id": 3,
+        "name": "Faculty of Engineering and Technology",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "AIDS, AIML, CSD, CSME, CSE",
+        "rating": 4.5,
+        "fee": "₹2,00,000 per year",
+        "classes": "Core, Electives, Labs"
+    },
+    {
+        "id": 4,
+        "name": "Mahatma Gandhi Ayurvedic College",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Ayurveda",
+        "rating": 4.4,
+        "fee": "₹15,00,000 per year",
+        "classes": "Basic Principles, Clinical, Practical"
+    },
+    {
+        "id": 5,
+        "name": "School of Allied Health Sciences",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Health Science",
+        "rating": 4.2,
+        "fee": "₹2,00,000 per year",
+        "classes": "Basic Principles, Clinical, Practical"
+    },
+    {
+        "id": 6,
+        "name": "School of Allied Sciences",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "BCA, BBA, MCA, MBA",
+        "rating": 4.1,
+        "fee": "₹1,00,000 per year",
+        "classes": "Core, Applications, Labs"
+    },
+    {
+        "id": 7,
+        "name": "Smt. Radhikabai Meghe Medical College of Nursing",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Nursing",
+        "rating": 4.4,
+        "fee": "₹4,00,000 per year",
+        "classes": "Basic Sciences, Pre-clinical"
+    },
+    {
+        "id": 8,
+        "name": "Ravi Nair Physiotherapy College",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Physiotherapy",
+        "rating": 4.7,
+        "fee": "₹6,00,000 per year",
+        "classes": "Basic Sciences, Pre-clinical, Clinical"
+    },
+    {
+        "id": 9,
+        "name": "Datta Meghe College of Pharmacy",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Pharmacy",
+        "rating": 4.2,
+        "fee": "₹2,00,000 per year",
+        "classes": "Core, Electives, Labs"
+    },
+    {
+        "id": 10,
+        "name": "Shalinitai Meghe Medical College of Nursing",
+        "location": "Sawangi, Wardha, Maharashtra",
+        "stream": "Nursing",
+        "rating": 4.1,
+        "fee": "₹2,00,000 per year",
+        "classes": "Basic Principles, Clinical, Practical"
+    }
+]

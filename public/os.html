@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #7594c6, #dc3f8e, #bfbb46, #3480a0);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            margin: 40px 20px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .header img {
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .header h1, .header h2, .header h3 {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #0056b3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+        }
+        .header h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .file-upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .file-upload-container button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+        .file-upload-container button:hover {
+            background-color: #0056b3;
+        }
+        .file-list {
+            width: 80%;
+            max-width: 900px;
+            border-collapse: collapse;
+            margin-top: 60px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .file-list th, .file-list td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+        .file-list th {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .file-list th::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 0;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+        .file-list th:hover::after {
+            width: 100%;
+        }
+        .file-list tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .file-list tr:hover {
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .file-list a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .file-list a:hover {
+            text-decoration: underline;
+        }
+        .file-list .delete-link {
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .file-list .delete-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="header">
+        <img src="image/feat_logo.jpeg" alt="Faculty Logo">
+        <h1>DMIHER University</h1>
+        <h2>Faculty of Engineering and Technology</h2>
+        <h3>Operating System</h3>
+    </div>
+    <div class="file-upload-container">
+        <button onclick="uploadFile()">Upload File</button>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx">
+        <table class="file-list" id="fileTable">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Actions</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Files will be listed here dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let filesArray = [];
+
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (file) {
+                filesArray.push(file);
+                filesArray.sort((a, b) => a.name.localeCompare(b.name)); // Sort files alphabetically
+                renderFileTable();
+                fileInput.value = ''; // Clear the input
+            } else {
+                alert('Please select a file to upload.');
+            }
+        }
+
+        function renderFileTable() {
+            const fileTableBody = document.getElementById('fileTable').querySelector('tbody');
+            fileTableBody.innerHTML = ''; // Clear existing table rows
+            filesArray.forEach(file => {
+                const fileRow = document.createElement('tr');
+                fileRow.innerHTML = `
+                    <td>${file.name}</td>
+                    <td><a href="${URL.createObjectURL(file)}" target="_blank">View</a></td>
+                    <td><a href="#" class="delete-link" onclick="deleteFile('${file.name}')">Delete</a></td>
+                `;
+                fileTableBody.appendChild(fileRow);
+            });
+        }
+
+        function deleteFile(fileName) {
+            filesArray = filesArray.filter(file => file.name !== fileName);
+            renderFileTable();
+        }
+    </script>
+</body>
+</html>

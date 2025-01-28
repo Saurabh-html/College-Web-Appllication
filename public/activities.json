@@ -1,0 +1,62 @@
+[
+    {
+        "centreName": "Dance Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "danceclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Rhythmic Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "rhythmicclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Art Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "artclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Sports Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "sportsclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Yoga Centre",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "yogacentre.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Drama Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "dramaclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Sports Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "sportsclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Lensation Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "lensationclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Science Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "scienceclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    },
+    {
+        "centreName": "Tech Club",
+        "location": "FEAT, DMIHER",
+        "contactEmail": "techclub.feat@dmiher.edu.in",
+        "timings": "5 PM - 7 PM, every Friday"
+    }
+]

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester III Timetable</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #7594c6, #dc3f8e, #bfbb46, #3480a0);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            margin: 40px 20px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .header img {
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .header h1, .header h2, .header h3 {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #0056b3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+        }
+        .header h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .file-upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .file-upload-container button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+        .file-upload-container button:hover {
+            background-color: #0056b3;
+        }
+        .file-upload-container input[type="file"] {
+            margin-top: 60px;
+            display: block;
+        }
+        .file-display-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Center align */
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+        .timetable-container {
+            margin: 0 auto; /* Ensure it is center-aligned */
+            width: 80%;
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        .timetable-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="header">
+        <img src="image/feat_logo.jpeg" alt="Faculty Logo">
+        <h1>DMIHER University</h1>
+        <h2>Faculty of Engineering and Technology</h2>
+        <h3>Semester III Timetable</h3>
+    </div>
+    <div class="file-upload-container">
+        <button onclick="uploadFile()">Upload Timetable</button>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png">
+    </div>
+    <div class="file-display-container" id="fileDisplayContainer">
+        <!-- Timetable will be displayed here -->
+    </div>
+    <script>
+        let fileDisplayContainer = document.getElementById('fileDisplayContainer');
+
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (file) {
+                fileDisplayContainer.innerHTML = ''; // Clear any existing timetable
+
+                const fileURL = URL.createObjectURL(file);
+                const fileElement = document.createElement('div');
+                fileElement.classList.add('timetable-container');
+
+                if (file.type.includes('image')) {
+                    const img = document.createElement('img');
+                    img.src = fileURL;
+                    fileElement.appendChild(img);
+                } else {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = fileURL;
+                    iframe.style.width = '100%';
+                    iframe.style.height = '600px';
+                    fileElement.appendChild(iframe);
+                }
+
+                fileDisplayContainer.appendChild(fileElement);
+
+                // Add Delete button
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+                deleteButton.innerText = 'Delete Timetable';
+                deleteButton.onclick = function() {
+                    fileDisplayContainer.innerHTML = ''; // Remove the displayed timetable
+                };
+                fileDisplayContainer.appendChild(deleteButton);
+
+                fileInput.value = ''; // Clear the input
+            } else {
+                alert('Please select a timetable file to upload.');
+            }
+        }
+    </script>
+</body>
+</html>

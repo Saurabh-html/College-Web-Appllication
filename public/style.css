@@ -1,0 +1,6 @@
+.logo {
+    max-width: 200px; /* adjust the width to your needs */
+    height: auto;
+    margin: 20px auto; /* add some margin to center the logo */
+    display: block;
+  }

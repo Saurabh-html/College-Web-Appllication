@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #6A5ACD;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #54458B;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logout-btn {
+    background-color: #54458B;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #463976;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+.icon-btn:hover img {
+    opacity: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+.details-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Details</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #6A5ACD;
+            color: white;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #54458B;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logout-btn {
+            background-color: #54458B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #453772;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6A5ACD;
+            color: white;
+        }
+
+        .details-link {
+            color: #6A5ACD;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="tuition-centres.html">Tuition Centres</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="industry.html">Industry Details</a></li>
+                <li><a href="online.html">Online Mentors</a></li>
+                <li><a href="learning.html">Learning Resources</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <a href="profile.html" class="user-info-link">
+                <div class="user-info">
+                    <img src="https://placehold.co/50x50" alt="User Profile">
+                    <span>You</span>
+                </div>
+            </a>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <div class="content">
+            <h1>Industry Details</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Industry</th>
+                        <th>Key Companies</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Information Technology</td>
+                        <td>TCS, Infosys, Wipro</td>
+                        <td><a href="#" class="details-link" data-industry="Information Technology" data-companies="TCS, Infosys, Wipro">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Automobile</td>
+                        <td>Maruti, Tata, Mahindra</td>
+                        <td><a href="#" class="details-link" data-industry="Automobile" data-companies="Maruti, Tata, Mahindra">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Pharmaceuticals</td>
+                        <td>Sun Pharma, Cipla, Dr. Reddy's</td>
+                        <td><a href="#" class="details-link" data-industry="Pharmaceuticals" data-companies="Sun Pharma, Cipla, Dr. Reddy's">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>FMCG</td>
+                        <td>HUL, ITC, Nestle</td>
+                        <td><a href="#" class="details-link" data-industry="FMCG" data-companies="HUL, ITC, Nestle">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Banking</td>
+                        <td>SBI, ICICI, HDFC</td>
+                        <td><a href="#" class="details-link" data-industry="Banking" data-companies="SBI, ICICI, HDFC">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Telecommunications</td>
+                        <td>Jio, Airtel, Vodafone</td>
+                        <td><a href="#" class="details-link" data-industry="Telecommunications" data-companies="Jio, Airtel, Vodafone">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Textiles</td>
+                        <td>Arvind, Raymond, Vardhman</td>
+                        <td><a href="#" class="details-link" data-industry="Textiles" data-companies="Arvind, Raymond, Vardhman">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Energy</td>
+                        <td>ONGC, Reliance, NTPC</td>
+                        <td><a href="#" class="details-link" data-industry="Energy" data-companies="ONGC, Reliance, NTPC">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Construction</td>
+                        <td>L&T, DLF, Godrej</td>
+                        <td><a href="#" class="details-link" data-industry="Construction" data-companies="L&T, DLF, Godrej">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Retail</td>
+                        <td>Reliance Retail, Future Group, Shoppers Stop</td>
+                        <td><a href="#" class="details-link" data-industry="Retail" data-companies="Reliance Retail, Future Group, Shoppers Stop">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.details-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const industry = this.getAttribute('data-industry');
+                const companies = this.getAttribute('data-companies');
+                const detailsPage = window.open('', '_blank');
+                detailsPage.document.write(`
+                    <html>
+                    <head>
+                        <title>${industry} Details</title>
+                        <style>
+                            body {
+                                font-family: sans-serif;
+                                margin: 0;
+                                padding: 20px;
+                                background-color: #f4f4f4;
+                            }
+                            h1 {
+                                color: #6A5ACD;
+                            }
+                            .content {
+                                background-color: white;
+                                padding: 20px;
+                                border-radius: 5px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <h1>${industry} Details</h1>
+                            <p><strong>Key Companies:</strong> ${companies}</p>
+                            <p>Additional details about the ${industry} industry can be provided here.</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>

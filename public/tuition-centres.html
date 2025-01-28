@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Centres</title>
+    <link rel="stylesheet" href="tuition-centres.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="tuition-centres.html">Tuition Centres</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="industry.html">Industry Details</a></li>
+                <li><a href="online.html">Online Mentors</a></li>
+                <li><a href="learning.html">Learning Resources</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <a href="profile.html" class="user-info-link">
+                <div class="user-info">
+                    <img src="https://placehold.co/50x50" alt="User Profile">
+                    <span>You</span>
+                </div>
+            </a>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <div class="content">
+            <div class="header">
+                <input type="text" id="search-bar" placeholder="Search for centres...">
+                <button class="icon-btn" id="filter-btn">
+                    <img src="filter-icon.png" alt="Filter">
+                </button>
+                <button class="icon-btn" id="location-btn">
+                    <img src="location-icon.png" alt="Find Nearest Centre">
+                </button>
+            </div>
+            <h1>Tuition Centres</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Centre Name</th>
+                        <th>Location</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="centre-table-body">
+                    <tr data-lat="28.642684" data-lng="77.189472">
+                        <td>ABC Tuition Centre</td>
+                        <td>Pusa Road, Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="ABC Tuition Centre" data-location="Pusa Road, Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.565748" data-lng="77.188641">
+                        <td>Excel Coaching</td>
+                        <td>R.K. Puram, South Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="Excel Coaching" data-location="R.K. Puram, South Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.514391" data-lng="77.203681">
+                        <td>Success Tutors</td>
+                        <td>Pushp Vihar, New Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="Success Tutors" data-location="Pushp Vihar, New Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.613939" data-lng="77.209021">
+                        <td>Bright Future Academy</td>
+                        <td>New Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="Bright Future Academy" data-location="New Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.536275" data-lng="77.161883">
+                        <td>Knowledge Hub</td>
+                        <td>Vasant Kunj, New Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="Knowledge Hub" data-location="Vasant Kunj, New Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="28.593666" data-lng="77.219677">
+                        <td>Smart Learning Centre</td>
+                        <td>Lodhi Estate, New Delhi</td>
+                        <td><a href="#" class="details-link" data-centre="Smart Learning Centre" data-location="Lodhi Estate, New Delhi">Details</a></td>
+                    </tr>
+                    <tr data-lat="26.912434" data-lng="75.787270">
+                        <td>Top Score Tutors</td>
+                        <td>Jaipur</td>
+                        <td><a href="#" class="details-link" data-centre="Top Score Tutors" data-location="Jaipur">Details</a></td>
+                    </tr>
+                    <tr data-lat="19.076090" data-lng="72.877426">
+                        <td>Master Minds Academy</td>
+                        <td>Mumbai</td>
+                        <td><a href="#" class="details-link" data-centre="Master Minds Academy" data-location="Mumbai">Details</a></td>
+                    </tr>
+                    <tr data-lat="12.971599" data-lng="77.594566">
+                        <td>Achievers Coaching</td>
+                        <td>Bangalore</td>
+                        <td><a href="#" class="details-link" data-centre="Achievers Coaching" data-location="Bangalore">Details</a></td>
+                    </tr>
+                    <tr data-lat="13.082680" data-lng="80.270718">
+                        <td>Bright Path Institute</td>
+                        <td>Chennai</td>
+                        <td><a href="#" class="details-link" data-centre="Bright Path Institute" data-location="Chennai">Details</a></td>
+                    </tr>
+                    <tr data-lat="22.572646" data-lng="88.363895">
+                        <td>Future Leaders Academy</td>
+                        <td>Kolkata</td>
+                        <td><a href="#" class="details-link" data-centre="Future Leaders Academy" data-location="Kolkata">Details</a></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="tuition-center.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Semester 6</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6f61, #d1a655, #b2ff59, #a3e8ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            margin: 40px 20px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .header img {
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #0056b3;
+            margin: 10px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .button-container a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.4s;
+            transform: translate(-50%, -50%) rotate(45deg);
+            z-index: 0;
+        }
+        .button-container a span {
+            position: relative;
+            z-index: 1;
+        }
+        .button-container a:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+        .button-container a:active {
+            transform: translateY(0);
+        }
+        .button-container a:hover::before {
+            transform: translate(-50%, -50%) rotate(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="header">
+        <img src="image/feat_logo.jpeg" alt="Faculty Logo">
+        <h1>Faculty of Engineering and Technology, DMIHER</h1>
+        <h2>Computer Science and Engineering</h2>
+        <h3>Semester 6</h3>
+    </div>
+    <div class="button-container">
+        <a href="#"><span>Artificial Intelligence</span></a>
+        <a href="#"><span>Web Technologies</span></a>
+        <a href="#"><span>Machine Learning</span></a>
+        <a href="#"><span>Mathematics V</span></a>
+        <a href="#"><span>Software Engineering III</span></a>
+        <a href="#"><span>AI Lab</span></a>
+        <a href="#"><span>Web Technologies Lab</span></a>
+        <a href="acad_sem6_cse.html"><span>Academic Book</span></a>
+    </div>
+</body>
+</html>

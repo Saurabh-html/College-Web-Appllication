@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSME Course Details</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .header h1 {
+            margin: 10px 0;
+            font-size: 2.5em;
+            color: #0056b3;
+        }
+        .header h2 {
+            margin: 5px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .course-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .course-details h3 {
+            font-size: 2em;
+            color: #0056b3;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .course-details p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .semesters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .semester {
+            width: 150px;
+            height: 150px;
+            background-color: #0056b3;
+            color: #fff;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .semester:hover {
+            transform: translateY(-5px);
+            background-color: #003d80;
+        }
+        .semester-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .semester-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DMIHER University</h1>
+        <h2>Faculty of Engineering and Technology</h2>
+        <h2>CSME Course Details</h2>
+    </div>
+    <div class="container">
+        <div class="course-details">
+            <h3>Computer Science and Medical Engineering (CSME)</h3>
+            <p>The Computer Science and Medical Engineering (CSME) program integrates core principles of computer science with medical engineering applications. This program aims to prepare students for careers where technology and healthcare intersect. Students will learn about medical imaging, bioinformatics, health informatics, and the development of medical software systems. The curriculum is designed to equip students with both technical skills and domain knowledge to address healthcare challenges using computing technologies.</p>
+        </div>
+        <div class="semesters">
+            <a href="csme_sem1.html" class="semester">
+                <div class="semester-icon">📘</div>
+                <div class="semester-title">Semester 1</div>
+            </a>
+            <a href="csme_sem2.html" class="semester">
+                <div class="semester-icon">📙</div>
+                <div class="semester-title">Semester 2</div>
+            </a>
+            <a href="csme_sem3.html" class="semester">
+                <div class="semester-icon">📗</div>
+                <div class="semester-title">Semester 3</div>
+            </a>
+            <a href="csme_sem4.html" class="semester">
+                <div class="semester-icon">📕</div>
+                <div class="semester-title">Semester 4</div>
+            </a>
+            <a href="csme_sem5.html" class="semester">
+                <div class="semester-icon">📔</div>
+                <div class="semester-title">Semester 5</div>
+            </a>
+            <a href="csme_sem6.html" class="semester">
+                <div class="semester-icon">📓</div>
+                <div class="semester-title">Semester 6</div>
+            </a>
+            <a href="csme_sem7.html" class="semester">
+                <div class="semester-icon">📒</div>
+                <div class="semester-title">Semester 7</div>
+            </a>
+            <a href="csme_sem8.html" class="semester">
+                <div class="semester-icon">📚</div>
+                <div class="semester-title">Semester 8</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects List</title>
+    <style>
+        html, body {
+            height: 100%; /* Ensure full height for both html and body */
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Ensure scrollbars are enabled */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: url('image/feat-b.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .overlay {
+            position: fixed; /* Change to fixed to cover entire viewport */
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+            background: rgba(255, 255, 255, 0.8); /* White shade with opacity */
+            z-index: 1;
+            pointer-events: none; /* Allow interactions with underlying content */
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2; /* Ensure the container is above the overlay */
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .subject-form {
+            margin-bottom: 20px;
+        }
+        .subject-form input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 8px;
+            margin-right: 10px;
+        }
+        .subject-form input[type="button"] {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .subject-form input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .subject-list {
+            margin-top: 20px;
+        }
+        .subject-list table {
+            width: 100%;
+            border-collapse: collapse;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .subject-list table, .subject-list th, .subject-list td {
+            border: 1px solid #ddd;
+        }
+        .subject-list th, .subject-list td {
+            padding: 8px;
+            text-align: left;
+        }
+        .subject-list th {
+            background-color: #f4f4f4;
+        }
+        .subject-list tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .subject-list tr:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease;
+        }
+        .subject-list td a {
+            color: blue;
+            text-decoration: none;
+        }
+        .subject-list td a:hover {
+            text-decoration: underline;
+        }
+        .logo-top-left, .logo-top-right {
+            position: absolute;
+            top: 10px;
+            z-index: 1000;
+        }
+        .logo-top-left {
+            left: 10px;
+        }
+        .logo-top-right {
+            right: 10px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div> <!-- White shade overlay -->
+    <div class="logo-top-left">
+        <img src="image/dlogo.jpeg" alt="Top Left Logo" style="width: 200px;">
+    </div>
+    <div class="logo-top-right">
+        <img src="image/feat_logo.jpeg" alt="Top Right Logo" style="width: 100px;">
+    </div>
+    <div class="container">
+        <h1>Faculty of Engineering and Technology, DMIHER</h1>
+        <h2>Subjects List</h2>
+        <div class="subject-form">
+            <input type="text" id="subjectName" placeholder="Enter subject name" onkeyup="searchSubject()">
+        </div>
+        <div class="subject-list">
+            <table id="subjectTable">
+                <thead>
+                    <tr>
+                        <th>Subject Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Subjects will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample subject list
+        const subjects = [
+            { name: 'Applied Engineering Mathematics-I', address: 'aem-I.html' },
+            { name: 'Applied Engineering Physics', address: 'aep.html' },
+            { name: 'Applied Engineering Chemistry', address: 'aec.html' },
+            { name: 'Engineering Graphics and Design', address: 'egd.html' },
+            { name: 'C/C++', address: 'bpps.html' },
+            { name: 'Communication Skills and Personality Development', address: 'cspd.html' },
+            { name: 'Java Programming', address: 'jp.html' },
+            { name: 'Basics of Electrical and Electronics Engineering', address: 'beee.html' },
+            { name: 'Applied Engineering Mathematics-II', address: 'aem-II.html' },
+            { name: 'Entrepreneurship Development and Business Ethics', address: 'edbe.html' },
+            { name: 'Data Structure and Algorithm', address: 'dsa.html' },
+            { name: 'Python Programming', address: 'pp.html' },
+            { name: 'Analog and Digital Electronics', address: 'ade.html' },
+            { name: 'Data Visualization', address: 'dv.html' },
+            { name: 'IoT Integrated Robotics in Healthcare', address: 'iotirh.html' },
+            { name: 'Introduction to Artificial Intelligence', address: 'iai.html' },
+            { name: 'Data Interface for Sustainable Healthcare System', address: 'dish.html' },
+            { name: 'Discrete Structures', address: 'ds.html' },
+            { name: 'E-Monitoring for Healthcare', address: 'emh.html' },
+            { name: 'Network Analysis and Synthesis', address: 'nas.html' },
+            { name: 'Tissue Engineering', address: 'te.html' },
+            { name: 'Statistical Foundation for Machine Learning', address: 'sfml.html' },
+            { name: 'Software Engineering', address: 'se.html' },
+            { name: 'Operating System', address: 'os.html' },
+            { name: 'Machine Learning Algorithms', address: 'mla.html' },
+            { name: 'Foundation of Python for Data Science and Machine Learning', address: 'fpdsml.html' },
+            { name: 'Design and Analysis of Algorithm', address: 'daa.html' },
+            { name: 'Big Data & IoT in Healthcare Track', address: 'bd&iot.html' },
+            { name: 'Computer Organisation', address: 'co.html' },
+            { name: 'Micro&Nanorobotics for Healthcare Practices', address: 'mnhcp.html' },
+            { name: 'Biomaterials in Tissue Engineering', address: 'bmte.html' },
+            { name: 'Data Warehouse and Mining', address: 'dwm.html' },
+            { name: 'Healthcare Anatomy and Physiology', address: 'hap.html' },
+            { name: 'Database Management System', address: 'dbms.html' },
+            { name: 'Big Data Analytics', address: 'big-data.html' },
+            { name: 'Healthcare Recommender System', address: 'hrs.html' },
+            { name: 'Introduction to Data Science', address: 'ids.html' },
+            { name: 'Cyber Security', address: 'cs.html' },
+            { name: 'Medical Imaging', address: 'mi.html' },
+            { name: 'Machine Learning for Signal Processing', address: 'mlsp.html' },
+            { name: 'Artificial Intelligence', address: 'ai.html' },
+            { name: 'Intelligence Learning Analytics in Healthcare', address: 'ilah.html' },
+            { name: 'Compiler Design', address: 'cd.html' },
+            { name: 'NLP for Health Related Text', address: 'nlp-health.html' },
+            { name: 'Theory of Automata and Formal Language', address: 'tafl.html' },
+            { name: 'Engineering for Disease Prevention', address: 'disease-prevention.html' },
+            { name: 'Biomaterials and Biomolecules', address: 'bmbm.html' },
+            { name: 'Induced Pluripotent Stem Cell in Scaffold-Based Tissue Engineering', address: 'ipscsbte.html' },
+            { name: 'Biomedical Transducers and Signal Conditioning', address: 'bmtsc.html' },
+            { name: 'Machine Learning and Statistical Analysis', address: 'mlsa.html' }
+        ];
+
+        // Function to populate the table with subjects
+        function populateSubjectTable(subjectList = subjects) {
+            const tbody = document.getElementById('subjectTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = ''; // Clear the table body
+
+            subjectList.forEach(subject => {
+                const row = document.createElement('tr');
+                const nameCell = document.createElement('td');
+
+                // Make the subject name a clickable link
+                nameCell.innerHTML = `<a href="${subject.address}">${subject.name}</a>`;
+                
+                row.appendChild(nameCell);
+                tbody.appendChild(row);
+            });
+        }
+
+        // Function to search for a subject
+        function searchSubject() {
+            const subjectName = document.getElementById('subjectName').value.trim().toLowerCase();
+            const filteredSubjects = subjects.filter(subject => subject.name.toLowerCase().includes(subjectName));
+            
+            if (filteredSubjects.length > 0) {
+                populateSubjectTable(filteredSubjects);
+            } else {
+                populateSubjectTable(); // Show all subjects if no match
+                alert('No matching subjects found');
+            }
+        }
+
+        // Initialize the table with all subjects
+        populateSubjectTable();
+    </script>
+</body>
+</html>

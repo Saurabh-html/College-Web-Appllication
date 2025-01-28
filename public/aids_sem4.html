@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDS Semester 4</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            margin: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .header img {
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .header h1, .header h2, .header h3 {
+            margin: 5px 0;
+        }
+
+        .subject-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject {
+            margin-bottom: 40px;
+        }
+
+        .subject h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        #fileInput, #filePassword {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .delete-link {
+            color: red;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #0e101c;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        .circle:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            background: #84fab0;
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: #8fd3f4;
+            top: 40%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: #fbc2eb;
+            top: 80%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .circle:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: #a18cd1;
+            top: 10%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-50px) translateX(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="image/feat_logo.jpeg" alt="Faculty Logo">
+        <h1>Faculty of Engineering and Technology, DMIHER</h1>
+        <h2>Artificial Intelligence and Data Science</h2>
+        <h3>Semester 4</h3>
+    </div>
+
+    <!-- Subjects -->
+    <div class="subject-container">
+        <!-- Add all subjects -->
+        <div class="subject" id="sfml">
+            <h3>Statistical Foundation for Machine Learning</h3>
+            <input type="file" id="fileInput_sfml" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_sfml" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('sfml')">Upload File</button>
+            <table id="fileTable_sfml"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="se">
+            <h3>Software Engineering</h3>
+            <input type="file" id="fileInput_se" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_se" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('se')">Upload File</button>
+            <table id="fileTable_se"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        
+        <div class="subject" id="os">
+            <h3>Operating System</h3>
+            <input type="file" id="fileInput_os" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_os" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('os')">Upload File</button>
+            <table id="fileTable_os"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="ds"></div>
+            <h3>Discrete Structure</h3>
+            <input type="file" id="fileInput_ds" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_ds" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('ds')">Upload File</button>
+            <table id="fileTable_ds"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="mla"></div>
+            <h3>Machine Learning Algorithms</h3>
+            <input type="file" id="fileInput_mla" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_mla" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('mla')">Upload File</button>
+            <table id="fileTable_mla"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="os-lab"></div>
+            <h3>Operating System Lab</h3>
+            <input type="file" id="fileInput_os-lab" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_os-lab" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('os-lab')">Upload File</button>
+            <table id="fileTable_os-lab"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="pfds-lab"></div>
+            <h3>PFDS Lab</h3>
+            <input type="file" id="fileInput_pfds-lab" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_pfds-lab" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('pfds-lab')">Upload File</button>
+            <table id="fileTable_pfds-lab"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="se-lab"></div>
+            <h3>SE Lab</h3>
+            <input type="file" id="fileInput_se-lab" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_se-lab" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('se-lab')">Upload File</button>
+            <table id="fileTable_se-lab"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="subject" id="acad-book"></div>
+            <h3>Academic Book Sem-IV AIDS</h3>
+            <input type="file" id="fileInput_os" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            <input type="password" id="filePassword_acd-book" placeholder="Enter password (4 alphanumeric characters)" maxlength="4">
+            <button onclick="uploadFile('Academic Book')">Upload File</button>
+            <table id="fileTable_acad-book"><thead><tr><th>File Name</th><th>Actions</th><th>Delete</th></tr></thead><tbody></tbody></table>
+        </div>
+    </div>
+</body>
+</html>

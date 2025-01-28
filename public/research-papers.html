@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Papers</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('image/feat_logo.jpeg');
+            background-size: cover;
+            background-position: center;
+            animation: backgroundAnimation 30s infinite alternate; /* Extended animation duration */
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #e0f7fa;
+                background-image: linear-gradient(45deg, #e0f7fa, #80deea);
+            }
+            25% {
+                background-color: #b9fbc0;
+                background-image: linear-gradient(45deg, #b9fbc0, #7cfc00);
+            }
+            50% {
+                background-color: #ffeb3b;
+                background-image: linear-gradient(45deg, #ffeb3b, #fbc02d);
+            }
+            75% {
+                background-color: #ffcdd2;
+                background-image: linear-gradient(45deg, #ffcdd2, #ffab91);
+            }
+            100% {
+                background-color: #e1bee7;
+                background-image: linear-gradient(45deg, #e1bee7, #ba68c8);
+            }
+        }
+
+        .university-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: blue;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 2; /* Ensure title is above the shade */
+            position: relative; /* For proper z-index behavior */
+        }
+
+        .sub-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: blue;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .research-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            overflow: auto;
+            position: relative;
+        }
+
+        .content {
+            width: 85%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Ensures the content section retains its original color with some transparency */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2; /* Ensure content is above the shade */
+            margin-top: 50px; /* Adjust to avoid overlap with title */
+        }
+
+        .add-paper-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 120px; /* Adjusted below the logo */
+            right: 20px;
+            z-index: 2; /* Ensure button is above the shade */
+        }
+
+        .add-paper-btn:hover {
+            background-color: darkblue;
+        }
+
+        .add-paper-form {
+            display: none; /* Initially hidden */
+            margin-bottom: 20px;
+        }
+
+        .add-paper-form input[type="text"],
+        .add-paper-form input[type="file"] {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .add-paper-form button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-paper-form button:hover {
+            background-color: darkblue;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 300px;
+            font-size: 1em;
+        }
+
+        .search-container .search-icon {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: blue;
+            margin-left: -30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .paper-table {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+            border-collapse: collapse;
+            animation: fadeIn 1s ease-in-out; /* Animation for table */
+        }
+
+        .paper-table th,
+        .paper-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition effects */
+        }
+
+        .paper-table th {
+            background-color: #f4f4f4;
+            color: blue; /* Title color */
+        }
+
+        .paper-table td {
+            color: blue; /* Link and file color */
+        }
+
+        .paper-table tr:hover {
+            background-color: #f0f8ff; /* Light blue background on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        .delete-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: darkblue;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Style for logos */
+        .logo {
+            width: 100px; /* Default size for logos */
+            position: absolute;
+            top: 10px;
+            z-index: 2;
+        }
+
+        .logo-left {
+            width: 200px; /* Double the size of the left logo */
+            left: 10px;
+        }
+
+        .logo-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo images -->
+    <img src="image/dlogo.jpeg" class="logo logo-left" alt="Left Logo">
+    <img src="image/feat_logo.jpeg" class="logo logo-right" alt="Right Logo">
+    
+    <div class="university-title">DMIHER University</div>
+    <div class="sub-title">Faculty of Engineering and Technology</div>
+    <div class="research-title">Research Papers</div>
+    <div class="container">
+        <div class="content">
+            <button class="add-paper-btn" onclick="toggleForm()">Add Research Paper</button>
+            <div class="add-paper-form" id="paperForm">
+                <input type="text" id="paperTitle" placeholder="Paper Title" required>
+                <input type="text" id="paperLink" placeholder="Link" required>
+                <input type="text" id="authorName" placeholder="Author Name" required>
+                <input type="file" id="paperFile" accept=".pdf,.doc,.docx">
+                <button onclick="addPaper()">Add Paper</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by title or author name" onkeyup="searchPapers()">
+                <span class="search-icon">🔍</span>
+            </div>
+            <table class="paper-table" id="paperTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Link</th>
+                        <th>File</th>
+                        <th>Author Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="paperList">
+                    <!-- Papers will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function toggleForm() {
+            const form = document.getElementById('paperForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addPaper() {
+            const title = document.getElementById('paperTitle').value;
+            const link = document.getElementById('paperLink').value;
+            const author = document.getElementById('authorName').value;
+            const file = document.getElementById('paperFile').files[0];
+            
+            if (!title || !link || !author) {
+                alert('Please enter a title, link, and author name for the paper.');
+                return;
+            }
+
+            const paperList = document.getElementById('paperList');
+            const paperRow = document.createElement('tr');
+            const fileLink = file ? `<a href="${URL.createObjectURL(file)}" target="_blank">${file.name}</a>` : 'No file';
+            
+            paperRow.innerHTML = `
+                <td>${title}</td>
+                <td><a href="${link}" target="_blank">${link}</a></td>
+                <td>${fileLink}</td>
+                <td>${author}</td>
+                <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+            `;
+            
+            paperList.appendChild(paperRow);
+            document.getElementById('paperForm').reset();
+            toggleForm();
+        }
+
+        function deleteRow(button) {
+            button.closest('tr').remove();
+        }
+
+        function searchPapers() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#paperList tr');
+
+            rows.forEach(row => {
+                const title = row.cells[0].textContent.toLowerCase();
+                const author = row.cells[3].textContent.toLowerCase();
+
+                if (title.includes(searchInput) || author.includes(searchInput)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

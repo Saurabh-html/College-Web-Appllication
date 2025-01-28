@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #6A5ACD;
+            color: white;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #54458B;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logout-btn {
+            background-color: #54458B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #453772;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6A5ACD;
+            color: white;
+        }
+
+        .details-link {
+            color: #6A5ACD;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="tuition-centres.html">Tuition Centres</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="industry.html">Industry Details</a></li>
+                <li><a href="online.html">Online Mentors</a></li>
+                <li><a href="learning.html">Learning Resources</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <a href="profile.html" class="user-info-link">
+                <div class="user-info">
+                    <img src="https://placehold.co/50x50" alt="User Profile">
+                    <span>You</span>
+                </div>
+            </a>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <div class="content">
+            <h1>Learning Resources</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource Name</th>
+                        <th>Type</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Khan Academy</td>
+                        <td>Video Lectures</td>
+                        <td><a href="#" class="details-link" data-resource="Khan Academy" data-type="Video Lectures">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Coursera</td>
+                        <td>Online Courses</td>
+                        <td><a href="#" class="details-link" data-resource="Coursera" data-type="Online Courses">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>edX</td>
+                        <td>Online Courses</td>
+                        <td><a href="#" class="details-link" data-resource="edX" data-type="Online Courses">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Udemy</td>
+                        <td>Online Courses</td>
+                        <td><a href="#" class="details-link" data-resource="Udemy" data-type="Online Courses">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>LinkedIn Learning</td>
+                        <td>Professional Development</td>
+                        <td><a href="#" class="details-link" data-resource="LinkedIn Learning" data-type="Professional Development">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>MIT OpenCourseWare</td>
+                        <td>University Courses</td>
+                        <td><a href="#" class="details-link" data-resource="MIT OpenCourseWare" data-type="University Courses">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Codecademy</td>
+                        <td>Coding Lessons</td>
+                        <td><a href="#" class="details-link" data-resource="Codecademy" data-type="Coding Lessons">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Duolingo</td>
+                        <td>Language Learning</td>
+                        <td><a href="#" class="details-link" data-resource="Duolingo" data-type="Language Learning">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>TED-Ed</td>
+                        <td>Educational Videos</td>
+                        <td><a href="#" class="details-link" data-resource="TED-Ed" data-type="Educational Videos">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Quizlet</td>
+                        <td>Flashcards</td>
+                        <td><a href="#" class="details-link" data-resource="Quizlet" data-type="Flashcards">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.details-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const resource = this.getAttribute('data-resource');
+                const type = this.getAttribute('data-type');
+                const detailsPage = window.open('', '_blank');
+                detailsPage.document.write(`
+                    <html>
+                    <head>
+                        <title>${resource} - ${type}</title>
+                        <style>
+                            body {
+                                font-family: sans-serif;
+                                margin: 0;
+                                padding: 20px;
+                                background-color: #f4f4f4;
+                            }
+                            h1 {
+                                color: #6A5ACD;
+                            }
+                            .content {
+                                background-color: white;
+                                padding: 20px;
+                                border-radius: 5px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <h1>${resource}</h1>
+                            <p><strong>Type:</strong> ${type}</p>
+                            <p>Additional details about ${resource} can be provided here.</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>

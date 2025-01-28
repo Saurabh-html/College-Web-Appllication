@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Centres</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Enable scroll bars */
+        }
+
+        .container {
+            padding: 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is above the background animation */
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            color: #fff;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2em;
+            color: blue;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #f4f4f4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-out; /* Animation for table fade-in */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4682B4; /* Change the header color */
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+
+        th:hover {
+            background-color: #1E90FF; /* Change color on hover */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            transition: background-color 0.3s ease; /* Row hover effect */
+        }
+
+        .details-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            text-decoration: underline;
+        }
+
+        .details-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-content h1 {
+            color: #6A5ACD;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #f06595, #845ec2, #00c9ff, #5cdb95, #ffc93c);
+            background-size: 400% 400%;
+            z-index: 0;
+            animation: gradient 5s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Logos */
+        .logo {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .logo-left {
+            width: 200px; /* Increase the size of the left logo by 4 times */
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo-right {
+            width: 100px; /* Double the size of the right logo */
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #1E90FF;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Logos -->
+    <img src="image/dlogo.jpeg" alt="Logo Left" class="logo logo-left">
+    <img src="image/feat_logo.jpeg" alt="Logo Right" class="logo logo-right">
+
+    <div class="container">
+        <h1>Faculty of Engineering and Technology</h1>
+        <h2>Activity Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Centre Name</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="activityTable">
+                <!-- Dynamic content will be loaded here -->
+            </tbody>
+        </table>
+        <div class="details-content" id="detailsContent">
+            <!-- Dynamic details will be displayed here -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch data from activities.json and populate the table
+            fetch('activities.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(activities => {
+                    console.log('Activities data:', activities); // Debug log
+                    const activityTable = document.getElementById('activityTable');
+                    activities.forEach(activity => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${activity.centreName}</td>
+                            <td>${activity.location}</td>
+                            <td><a href="#" class="details-link" data-centre="${activity.centreName}" data-location="${activity.location}" data-email="${activity.contactEmail}" data-timings="${activity.timings}">Details</a></td>
+                        `;
+                        activityTable.appendChild(row);
+                    });
+
+                    // Attach click event listeners to all detail links
+                    document.querySelectorAll('.details-link').forEach(link => {
+                        link.addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent the default anchor click behavior
+                            const centreName = this.getAttribute('data-centre');
+                            const location = this.getAttribute('data-location');
+                            const contactEmail = this.getAttribute('data-email');
+                            const timings = this.getAttribute('data-timings');
+                            showDetails(centreName, location, contactEmail, timings);
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching activity data:', error);
+                });
+
+            function showDetails(centreName, location, contactEmail, timings) {
+                console.log('Showing details for:', { centreName, location, contactEmail, timings }); // Debug log
+                const detailsContent = document.getElementById('detailsContent');
+                detailsContent.innerHTML = `
+                    <h1>${centreName} Details</h1>
+                    <p><strong>Location:</strong> ${location}</p>
+                    <p><strong>Contact Email:</strong> <a href="mailto:${contactEmail}">${contactEmail}</a></p>
+                    <p><strong>Timings:</strong> ${timings}</p>
+                    <p>Additional details about ${centreName} can be added here.</p>
+                    <div class="form-group">
+                        <label for="linkInput">Add a link:</label>
+                        <input type="text" id="linkInput" placeholder="Enter link">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileInput">Upload a file:</label>
+                        <input type="file" id="fileInput">
+                    </div>
+                    <div class="form-group">
+                        <button onclick="addLinkOrFile('${centreName}')">Add</button>
+                    </div>
+                    <div id="extraContent"></div>
+                `;
+                detailsContent.style.display = 'block'; // Make the details section visible
+            }
+
+            window.addLinkOrFile = function(centreName) {
+                const linkInput = document.getElementById('linkInput').value;
+                const fileInput = document.getElementById('fileInput').files[0];
+                const extraContent = document.getElementById('extraContent');
+
+                if (linkInput) {
+                    const linkItem = document.createElement('p');
+                    linkItem.innerHTML = `<strong>Link:</strong> <a href="${linkInput}" target="_blank">${linkInput}</a>`;
+                    extraContent.appendChild(linkItem);
+                }
+
+                if (fileInput) {
+                    const fileItem = document.createElement('p');
+                    fileItem.innerHTML = `<strong>File:</strong> ${fileInput.name}`;
+                    extraContent.appendChild(fileItem);
+                }
+
+                // Clear inputs after adding
+                document.getElementById('linkInput').value = '';
+                document.getElementById('fileInput').value = '';
+            };
+        });
+    </script>
+</body>
+</html>

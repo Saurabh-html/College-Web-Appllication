@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to DMIHER - Login</title>
+    <meta name="description" content="Login to DMIHER to access your courses, grades, and more.">
+    <meta name="keywords" content="DMIHER, student portal, login, online education">
+    <style>
+        body {
+            background: url('image/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity for readability */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .left-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-side {
+            flex: 1;
+            padding: 30px;
+            color: #333; /* Adjust text color for better contrast */
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-form {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity for readability */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 0.8em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .remember-me input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .sign-up {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="image/logo.png" alt="E-learning Logo">
+        </div>
+        <div class="right-side">
+            <h1>Welcome to DMIHER</h1>
+            <form class="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="password.html" class="forgot-password">Forgot password?</a>
+                <button type="submit" class="login-btn">LOGIN</button>
+            </form>
+            <a href="sign-up.html" class="sign-up">New here? Sign Up</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

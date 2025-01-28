@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Mentors</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #6A5ACD;
+            color: white;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #54458B;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logout-btn {
+            background-color: #54458B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #453772;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6A5ACD;
+            color: white;
+        }
+
+        .details-link {
+            color: #6A5ACD;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="learning-materials.html">Learning Materials</a></li>
+                <li><a href="tuition-centres.html">Tuition Centres</a></li>
+                <li><a href="activity.html">Activity Centres</a></li>
+                <li><a href="industry.html">Industry Details</a></li>
+                <li><a href="online.html">Online Mentors</a></li>
+                <li><a href="learning.html">Learning Resources</a></li>
+                <li><a href="setting.html">Settings</a></li>
+            </ul>
+            <a href="profile.html" class="user-info-link">
+                <div class="user-info">
+                    <img src="https://placehold.co/50x50" alt="User Profile">
+                    <span>You</span>
+                </div>
+            </a>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+        </div>
+        <div class="content">
+            <h1>Online Mentors</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mentor Name</th>
+                        <th>Expertise</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Mathematics</td>
+                        <td><a href="#" class="details-link" data-mentor="John Doe" data-expertise="Mathematics">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Physics</td>
+                        <td><a href="#" class="details-link" data-mentor="Jane Smith" data-expertise="Physics">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Emily Johnson</td>
+                        <td>Chemistry</td>
+                        <td><a href="#" class="details-link" data-mentor="Emily Johnson" data-expertise="Chemistry">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Michael Brown</td>
+                        <td>Biology</td>
+                        <td><a href="#" class="details-link" data-mentor="Michael Brown" data-expertise="Biology">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Linda Davis</td>
+                        <td>English</td>
+                        <td><a href="#" class="details-link" data-mentor="Linda Davis" data-expertise="English">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Robert Wilson</td>
+                        <td>History</td>
+                        <td><a href="#" class="details-link" data-mentor="Robert Wilson" data-expertise="History">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Patricia Moore</td>
+                        <td>Geography</td>
+                        <td><a href="#" class="details-link" data-mentor="Patricia Moore" data-expertise="Geography">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>James Taylor</td>
+                        <td>Computer Science</td>
+                        <td><a href="#" class="details-link" data-mentor="James Taylor" data-expertise="Computer Science">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Barbara Anderson</td>
+                        <td>Economics</td>
+                        <td><a href="#" class="details-link" data-mentor="Barbara Anderson" data-expertise="Economics">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Thomas Martinez</td>
+                        <td>Psychology</td>
+                        <td><a href="#" class="details-link" data-mentor="Thomas Martinez" data-expertise="Psychology">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.details-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const mentor = this.getAttribute('data-mentor');
+                const expertise = this.getAttribute('data-expertise');
+                const detailsPage = window.open('', '_blank');
+                detailsPage.document.write(`
+                    <html>
+                    <head>
+                        <title>${mentor} - ${expertise}</title>
+                        <style>
+                            body {
+                                font-family: sans-serif;
+                                margin: 0;
+                                padding: 20px;
+                                background-color: #f4f4f4;
+                            }
+                            h1 {
+                                color: #6A5ACD;
+                            }
+                            .content {
+                                background-color: white;
+                                padding: 20px;
+                                border-radius: 5px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <h1>${mentor}</h1>
+                            <p><strong>Expertise:</strong> ${expertise}</p>
+                            <p>Additional details about ${mentor} can be provided here.</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>

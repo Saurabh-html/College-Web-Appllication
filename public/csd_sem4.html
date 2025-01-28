@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD Semester 4</title>
+    <link rel="stylesheet" href="document.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            overflow: hidden; /* Prevent scrolling due to animation */
+        }
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #88c675, #4edc3f, #46bf4a, #046d0b);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            z-index: -1; /* Place behind the content */
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            margin: 40px 20px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .header img {
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #0056b3;
+            margin: 10px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .button-container a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.4s;
+            transform: translate(-50%, -50%) rotate(45deg);
+            z-index: 0;
+        }
+        .button-container a span {
+            position: relative;
+            z-index: 1;
+        }
+        .button-container a:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+        .button-container a:active {
+            transform: translateY(0);
+        }
+        .button-container a:hover::before {
+            transform: translate(-50%, -50%) rotate(0);
+        }
+        .back-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5em;
+            color: #007BFF;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+            z-index: 1;
+        }
+        
+        .back-icon:hover {
+            color: #0056b3;
+            transform: scale(1);
+        }
+
+        .context-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .context-menu a {
+            display: block;
+            padding: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .context-menu a:hover {
+            background-color: #f0f0f0;
+        }
+        .uploaded-files {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        .uploaded-files a {
+            display: block;
+            margin: 5px 0;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .uploaded-files a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="header">
+        <img src="image/feat_logo.jpeg" alt="Faculty Logo">
+        <h1>Faculty of Engineering and Technology, DMIHER</h1>
+        <h2>Computer Science and Design</h2>
+        <h3>Semester 4</h3>
+    </div>
+    <div class="button-container" id="buttonContainer">
+        <a href="timetable-sem-IV.html"><span>TIMETABLE</span></a>
+        <a href="co.html"><span>Computer Organisation</span></a>
+        <a href="os.html"><span>Operating System</span></a>
+        <a href="se.html"><span>Software Engineering</span></a>
+        <a href="sfml.html"><span>Statistical Foundation for Machine Learning</span></a>
+        <a href="mnhcp.html"><span>Micro&Nanorobotics for Healthcare Practices</span></a>
+        <a href="os-lab.html"><span>OS Lab</span></a>
+        <a href="daa-lab.html"><span>DAA Lab</span></a>
+        <a href="pfml-lab.html"><span>PFML Lab</span></a>
+        <a href="acad_sem4_csd.html"><span>Academic Book</span></a>
+    </div>
+    
+    <!-- Context Menu for File Upload -->
+    <div class="context-menu" id="contextMenu">
+        <a href="#" id="uploadOption">Upload File</a>
+    </div>
+
+    <!-- File Upload Form -->
+    <div style="display:none;">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="files" id="fileInput" multiple required>
+            <input type="text" name="subject" id="subjectInput" placeholder="Subject Name" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        async function fetchFiles() {
+            try {
+                const response = await fetch('/files'); // Endpoint to get list of files
+                if (response.ok) {
+                    const files = await response.json();
+                    const buttonContainer = document.getElementById('buttonContainer');
+                    files.forEach(file => {
+                        const a = document.createElement('a');
+                        a.href = `files/${file.name}`;
+                        a.target = '_blank';
+                        a.innerHTML = `<span>${file.name}</span>`;
+                        buttonContainer.appendChild(a);
+                    });
+                } else {
+                    console.error('Failed to fetch files');
+                }
+            } catch (error) {
+                console.error('Error fetching files:', error);
+            }
+        }
+
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+
+            if (event.target.closest('a')) {
+                const subjectName = event.target.innerText;
+
+                // Position the context menu
+                const contextMenu = document.getElementById('contextMenu');
+                contextMenu.style.display = 'block';
+                contextMenu.style.left = `${event.pageX}px`;
+                contextMenu.style.top = `${event.pageY}px`;
+
+                // Update upload option link
+                document.getElementById('uploadOption').onclick = function() {
+                    document.getElementById('subjectInput').value = subjectName;
+                    document.getElementById('fileInput').click();
+                    contextMenu.style.display = 'none';
+                };
+            }
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('contextMenu').style.display = 'none';
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let formData = new FormData();
+            let files = document.getElementById('fileInput').files;
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files[]', files[i]);
+            }
+            formData.append('subject', document.getElementById('subjectInput').value);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert('Files uploaded successfully');
+                    fetchFiles(); // Reload the file list
+                } else {
+                    alert('File upload failed');
+                }
+            } catch (error) {
+                alert('An error occurred while uploading the files');
+            }
+        });
+
+        // Initial fetch of files
+        fetchFiles();
+    </script>
+</body>
+</html>

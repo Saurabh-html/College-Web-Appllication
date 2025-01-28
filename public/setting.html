@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <link rel="stylesheet" href="setting.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Settings</h1>
+
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search for a setting...">
+    </div>
+
+    <ul>
+      <li>
+        <i class="fas fa-user"></i>
+        <a href="profile.html">Account</a>
+      </li>
+      <li>
+        <i class="fas fa-bell"></i>
+        <a href="notification.html">Notifications</a>
+      </li>
+      <li>
+        <i class="fas fa-eye"></i>
+        <a href="#" id="appearance-link">Appearance</a>
+      </li>
+      <li>
+        <i class="fas fa-lock"></i>
+        <a href="privacy.html">Privacy & Security</a>
+      </li>
+      <li>
+        <i class="fas fa-headphones"></i>
+        <a href="support.html">Help and Support</a>
+      </li>
+      <li>
+        <i class="fas fa-question-circle"></i>
+        <a href="about.html">About</a>
+      </li>
+    </ul>
+
+    <div id="appearance-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Appearance Settings</h2>
+        <button id="light-mode-btn">Light Mode</button>
+        <button id="dark-mode-btn">Dark Mode</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="setting.js"></script>
+</body>
+</html>
