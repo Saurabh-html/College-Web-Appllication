@@ -19,7 +19,7 @@ This web-based application is designed to provide a comprehensive transdisciplin
 
 ## Project Workflow
 The overall workflow of the project is as follows:
-
+![Project Workflow](Result/minor.png)
 1. User accesses the login page.
 2. User enters credentials and logs in.
 3. Application verifies the login credentials.
