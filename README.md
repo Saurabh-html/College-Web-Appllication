@@ -1,6 +1,4 @@
 # College Web Application
- 
-# E-Learning Application
 
 This repository is part of my project where i have created a web based college application, where all the colleges within the university can visit it. It is designed such that one can access the subjects interested from the other department. Also here students can post their research publications. The regular event updates will be displayed. Regular syllabus alongwith library equipments are also employed into it.
 
@@ -16,6 +14,8 @@ This repository is part of my project where i have created a web based college a
 
 ## Introduction
 This web-based application is designed to provide a comprehensive transdisciplinary education platform. It features a user-friendly interface with essential functionalities such as login, signup, and password recovery. After logging in, users can access various sections, including college details, update profile, library resources, event details, upload research papers, serach subjects by their name, etc. The application ensures a seamless and intuitive experience, facilitating easy navigation and access to educational materials and support.
+### Login Page
+![Login Page]('Result/Screenshot 2024-08-30 145054.png')
 
 ## Project Workflow
 The overall workflow of the project is as follows:
