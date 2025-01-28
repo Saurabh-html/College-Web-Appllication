@@ -2,7 +2,7 @@
  
 # E-Learning Application
 
-This repository is part of the Intel Unnati Industrial Training Program 2024. It aims to create an accessible and unified platform offering a wide range of educational resources and services for students, teachers, and the general public.
+This repository is part of my project where i have created a web based college application, where all the colleges within the university can visit it. It is designed such that one can access the subjects interested from the other department. Also here students can post their research publications. The regular event updates will be displayed. Regular syllabus alongwith library equipments are also employed into it.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -15,7 +15,7 @@ This repository is part of the Intel Unnati Industrial Training Program 2024. It
 - [License](#license)
 
 ## Introduction
-This web-based e-learning application is designed to provide a comprehensive online education platform. It features a user-friendly interface with essential functionalities such as login, signup, and password recovery. After logging in, users can access various sections, including school details, tuition center information, online resources, mentor details, and user profiles. The application ensures a seamless and intuitive experience, facilitating easy navigation and access to educational materials and support.
+This web-based application is designed to provide a comprehensive transdisciplinary education platform. It features a user-friendly interface with essential functionalities such as login, signup, and password recovery. After logging in, users can access various sections, including college details, update profile, library resources, event details, upload research papers, serach subjects by their name, etc. The application ensures a seamless and intuitive experience, facilitating easy navigation and access to educational materials and support.
 
 ## Project Workflow
 The overall workflow of the project is as follows:
@@ -24,19 +24,15 @@ The overall workflow of the project is as follows:
 2. User enters credentials and logs in.
 3. Application verifies the login credentials.
 4. Upon successful login, the user is redirected to the homepage.
-5. The homepage displays school details and other information.
-6. User navigates through the navigation bar to different sections:
-    - **Tuition Centre Detail**
-    - **Online Resources Detail**
-    - **Online Mentor Detail**
+5. The homepage displays list of colleges and other information.
+6. User navigates to different colleges through the college navigation bar and can can gaet many more features like:
+    - **Course Details**
+    - **Research Papers**
+    - **Learning Materials**
+    - **Settings**
     - **Profile Page**
     - **Logout Option**
-7. Each section provides specific functionalities:
-    - **Tuition Centre Detail**: View and apply for tuition services.
-    - **Online Resources Detail**: Access educational resources.
-    - **Online Mentor Detail**: Browse and contact online mentors.
-    - **Profile Page**: View and update user profile.
-    - **Logout Option**: End session and redirect to the login page.
+8. Each section provides specific functionalities.
 
 ## Features
 ### User Authentication
@@ -44,13 +40,13 @@ The overall workflow of the project is as follows:
 - Password recovery for forgotten passwords.
 
 ### Homepage
-- Displays school details and personalized user information.
+- Displays list of colleges and personalized user information.
 
 ### Navigation Bar
 - Easy access to various sections including:
-  - **Tuition Centre Detail**: View and apply for tuition services.
-  - **Online Resources Detail**: Access a wide range of educational resources.
-  - **Online Mentor Detail**: Browse and contact online mentors for guidance.
+  - **College Details**: View and access college courses, activities and learning materials
+  - **Library Resources**: Access a wide range of educational resources.
+  - **Research Papers**: Browse or upload research papers.
   - **Profile Page**: View and update user profile information.
   - **Logout**: Securely end the session and redirect to the login page.
 
@@ -67,13 +63,13 @@ The overall workflow of the project is as follows:
 - Users can view and edit their profiles to keep their information up-to-date.
 
 ### Resource Access
-- Users can easily access and utilize various online learning materials and resources.
+- Users can easily access and utilize various learning materials and resources.
 
-### Mentor Interaction
-- Allows users to connect with mentors for additional support and guidance.
+### Activity Notifications
+- Allows users to participate in various events organized.
 
-### Tuition Application
-- Users can apply for tuition services directly through the platform.
+### Research Papers
+- Users can browse as well as uplpoad their own papers.
 
 ### Session Management
 - Ensures secure session handling with proper login/logout mechanisms.
@@ -81,7 +77,7 @@ The overall workflow of the project is as follows:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository.git
+   git clone https://github.com/College-Web-Application.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -103,7 +99,7 @@ Our e-learning application delivers a comprehensive and user-friendly platform f
 - **Enhanced Learning Experience**: Access to a wide range of online resources and materials that enhance the learning journey.
 - **Seamless Navigation**: Intuitive navigation ensures users can easily access all sections and features of the application.
 - **Efficient Profile Management**: Effortless management and updating of user profiles.
-- **Improved Interaction**: Students can connect with mentors for personalized guidance and support.
+- **Improved Interaction**: Students can connect with various required features or also can upload their doubts for personalized guidance and support.
 - **Easy Application Process**: A streamlined process for applying to tuition services.
 - **Secure and Reliable**: User data is securely handled with modern technologies.
 - **Responsive Design**: An optimal user experience across various devices, including desktops, tablets, and smartphones.
@@ -111,7 +107,7 @@ Our e-learning application delivers a comprehensive and user-friendly platform f
 ## Benefits
 - **User-Friendly**: Intuitive design for easy navigation and usage.
 - **Comprehensive Resources**: Access to a wide range of educational materials.
-- **Personalized Guidance**: Connect with online mentors for tailored support.
+- **Transdisciplinary Course Access**: Browse all the interested resources.
 - **Responsive Design**: Seamless experience across all devices.
 - **Secure**: Robust security measures to protect user data.
 - **Efficient Management**: Easy profile and application management.
